@@ -1,0 +1,13 @@
+<%if flash[:notice]%>
+<div class="alert alert-success mt-4" roll="alert"  >
+    <%= flash[:notice]%>
+    <%# <%= flash[:notice].inspect    LET SAY U DIDN'T GET THE RESULT AND U WANT TO DEBUG, INSPECT WILL SHOW IT'S VALUE AS HTML ON SCREEN %>
+    <%# WE use '=' in '<%=' when we wnat to print the value in the line as html on web page if not then only use '<%' %>
+</div>
+<%end%>
+
+<%if flash[:alert]%>
+<div class="alert alert-warning mt-4" roll="alert" >
+    <%= flash[:alert]%>
+</div>
+<%end%>
