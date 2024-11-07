@@ -1,16 +1,30 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Tweets</a>
+    <%# <a class="navbar-brand" href="/">Tweets</a> %>
+    <%= link_to "Tweets", "/", class: "navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <%# <a class="nav-link active" aria-current="page" href="/">Home</a> %>
+          <%= link_to "Home", "/", class: "nav-link active" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <%# <a class="nav-link" href="/about">About</a> %>
+          <%= link_to "About", "/about", class: "nav-link" %> 
+          <%# 
+            #$NOTES$ above can be written as: <%= link_to "About", about_path, class="nav-link" 
+            #                                 <%= link_to "is content", <UR route name>_path, class="nav-link" 
+            #   Benifit of that is if you chnage your url link ie /about to /about_us you don't need to chnage the lick text everywhere
+            # just mention:
+            #                get "/about-us", to: "about#index" as: :about   and u can still use    <%= link_to "About", about_path, class="nav-link"  browser will respond to /about-us 
+            #    instead of: get "/about", to: "about#index"
+            #             if u do: get "/about-us", to: "about#index"  it will auto make a name/prefix as about_us
+            #
+            # u can run rails routes  to see all routes in ur app 
+            # %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
