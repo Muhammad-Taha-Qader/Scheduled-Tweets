@@ -22,6 +22,8 @@
   </head>
 
   <body>
+    <%# $NOTES$ We are saying to render a navbar as from view, but it's not a fullpage or somthing so we neterd partial and to distict partial view we use '_' ie view/shread/_navbar.html.erb %>
+    <%= render partial: "shared/navbar"%>
     <div class="container">
       <%= yield %>
     </div>

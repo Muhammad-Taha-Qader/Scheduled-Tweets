@@ -14,11 +14,11 @@ Rails.application.routes.draw do
 
   # Get /about
   get "/about", to: "about#index"
-  # OR works same : get "about", to: "about#index"
+  # $NOTES$ OR works same : get "about", to: "about#index"
   #
   # Get /
   get "/", to: "main#index"
-  # OR
+  # $NOTES$ OR
   # get "", to: "main#index"
   # root to: "main#index"    root is rails' custom helper
 end
