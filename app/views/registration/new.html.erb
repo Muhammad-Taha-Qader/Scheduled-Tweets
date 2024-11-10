@@ -1,4 +1,4 @@
-<h1>Registration</h1>
+<h1>Sign Up</h1>
 
 <%# <%=@user%>
 <%= form_with model: @user, url: sign_up_path do |form|%> 
@@ -14,5 +14,11 @@
     <div class="mb-3">
         <%= form.label :password_confirmation%>
         <%= form.password_field :password_confirmation, class: "form-control" , placeholder: "password"%>
+    </div>
+
+    <div class="mb-3">
+        <%# By defult it will see our model name as it knows it's brand new so name it as "Create User" but we can rename it %>
+        <%# <%= form.submit%> 
+        <%= form.submit "Sign Up" , class: "btn btn-outline-primary"%>
     </div>
 <%end%>

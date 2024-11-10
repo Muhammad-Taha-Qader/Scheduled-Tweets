@@ -30,10 +30,10 @@ Rails.application.routes.draw do
   # %>
 
   # Get /
-  get "/", to: "main#index"
+  # get "/", to: "main#index"
   # $NOTES$ OR
   # get "", to: "main#index"
-  # root to: "main#index"    root is rails' custom helper
+  root to: "main#index"    # root is rails' custom helper
 
   # GET /sign_up
   get "/sign_up", to: "registration#new"
