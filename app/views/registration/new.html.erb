@@ -2,8 +2,17 @@
 
 <%# <%=@user%>
 <%= form_with model: @user, url: sign_up_path do |form|%> 
-    <%= form.text_field :email%>
-    <%= form.password_field :password%>
-    <%= #use form.password_field to show dots, use .text_field to show text%>
-    <%= form.password_field :password_confermation%>
+    <div class="mb-3">
+        <%= form.label :email%>
+        <%= form.text_field :email , class: "form-control" , placeholder: "tweets@twilight.io"%>
+    </div>
+    <div class="mb-3">
+        <%= form.label :password%>
+        <%= form.password_field :password, class: "form-control" , placeholder: "password"%>
+    </div>
+    <%# <%=# use form.password_field to show dots, use .text_field to show text%> 
+    <div class="mb-3">
+        <%= form.label :password_confirmation%>
+        <%= form.password_field :password_confirmation, class: "form-control" , placeholder: "password"%>
+    </div>
 <%end%>
