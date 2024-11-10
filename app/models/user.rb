@@ -10,4 +10,5 @@
 
 class User < ApplicationRecord
     has_secure_password # method Ufrom rails this is going to use that password digest feature or column in our database and it's going to add a password and a password confirmation to our user these are virtual attributes that won't get saved to the database but when you submit a password it will run through bcrypt and hash that password so it can be saved in the database but it can also be used to look the user up for authentication when they log
+    validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "Must be a valid Email Address" }
 end
