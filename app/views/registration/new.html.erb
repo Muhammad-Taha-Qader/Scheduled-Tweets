@@ -1,0 +1,9 @@
+<h1>Registration</h1>
+
+<%# <%=@user%>
+<%= form_with model: @user, url: sign_up_path do |form|%> 
+    <%= form.text_field :email%>
+    <%= form.password_field :password%>
+    <%= #use form.password_field to show dots, use .text_field to show text%>
+    <%= form.password_field :password_confermation%>
+<%end%>
