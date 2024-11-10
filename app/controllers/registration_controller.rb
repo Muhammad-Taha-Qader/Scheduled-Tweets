@@ -12,14 +12,17 @@ class RegistrationController <ApplicationController
     if @user.save
       redirect_to root_path, notice: "Account created successfully"
     else
-      # flash[:alert] = "Something was wrong"
+      flash[:alert] = "Something was wrong"
       render :new
+      puts "ERROR: User registration failed"
     end
     # puts "Create action was called"
     # logger.debug "Create action was called with params: #{params[:user].inspect}" # Logs detailed info
   end
 
+
   private
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
