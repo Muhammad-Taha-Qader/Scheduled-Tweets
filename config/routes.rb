@@ -40,5 +40,9 @@ Rails.application.routes.draw do
   get "/sign_up", to: "registration#new"
   # post "/users", to: "registration#create"   by default new.html form will look for it , but's a confusing route for sign_up page as named as users
   post "/sign_up", to: "registration#create"  # if we named it as we did , we need to tell our form to look for this instead ie: <%= form_with model: @user, url: sign_up_path do |form|%>
+
+  get "/sign_in", to: "sessions#new"
+  post "/sign_in", to: "sessions#create"
+
   delete "/logout", to: "sessions#destroy"
 end
