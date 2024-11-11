@@ -10,11 +10,16 @@ class RegistrationController <ApplicationController
     # @user = User.new(prams[:user])  it will create new user but we sould restrict which variables are being passed
     @user = User.new(user_params)
     if @user.save
+      # cookies[:user_id] # so when a user successfully gets created in the database we actually need to sign them in right now we're going to redirect them back to the home page the root path but we're not going to sign them in at all and that is a problem so the way to do this is actually to set a cookie to keep track of the user being signed in now we can access our cookies by saying cookies and we can give a cookie a name and say user id is whatever but if we were to do that that is going to be something anybody can do and change their user id that they're logged in as that would be very very bad
+      session[:user_id] = @user.id # this is something that can be set server side but browsers can never tamper with that so nobody can mess with this and we can use that id on the next request to check to see if the user is logged in
       redirect_to root_path, notice: "Account created successfully"
     else
-      flash[:alert] = "Something was wrong"
-      render :new
+      # flash[:alert] = "Something was wrong"
+      # redirect_to sign_up_path, alert: "Something was wrong"
+      # redirect_to sign_up_path
+      render :new  # keeps the @user object in memory with all its validation errors, whereas redirect_to initiates a new request and reloads the page, losing the error messages associated with the @user instance.
       puts "ERROR: User registration failed"
+      puts @user.errors.full_messages
     end
     # puts "Create action was called"
     # logger.debug "Create action was called with params: #{params[:user].inspect}" # Logs detailed info
