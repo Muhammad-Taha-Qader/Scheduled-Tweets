@@ -1,6 +1,12 @@
 <div class="d-flex align-items-center justify-content-center">
     <h1>Welcome to Twilight tweeter</h1>
-    <% if @user%>
-        logged in as : <%= @user.email%>
-    <%end%>
 </div>
+
+<% if @user%>
+    logged in as : <%= @user.email%>
+
+    <%# <%= link_to "Logout", logout_path, method: :delete   %>
+    <%# #links on a page are normally get requests and so by doing the method delete there's some javascript that comes with rails that will transform that request into a delete request.   for you now it's more correct to use a form for delete requests and so that is what the button_to generates %>
+    <%= button_to "Logout", logout_path, method: :delete %>
+    <%# we'll see log out as a button in html and this is actually wrapped in a form so we have a hidden form with the method delete and this is one of the tricks about how the web works the forms actually really just support get and post and we have to specify a hidden field inside of our form for the delete method which is kind of interesting but rails will understand that and it will submit a delete request to your application which will go to the sessions destroy action  %>
+<%end%>
