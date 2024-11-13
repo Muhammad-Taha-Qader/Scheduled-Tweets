@@ -12,10 +12,11 @@ class SessionsController <ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: "Logged In Successfully"
     else
-      render :new
-      flash[:alert] = "Invalid email or password"
-      # $$rails render vs redirect
-      # https://medium.com/@kerenlerner/render-and-redirect-which-to-use-106ff653ee9a
+      # render :new
+      # flash[:alert] = "Invalid email or password"
+      # # $$rails render vs redirect
+      # # https://medium.com/@kerenlerner/render-and-redirect-which-to-use-106ff653ee9a
+      redirect_back fallback_location: root_path, alert: "Invalid email or password"
     end
   end
 end
