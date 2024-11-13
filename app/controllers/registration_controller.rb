@@ -17,9 +17,12 @@ class RegistrationController <ApplicationController
       # flash[:alert] = "Something was wrong"
       # redirect_to sign_up_path, alert: "Something was wrong"
       # redirect_to sign_up_path
-      render :new  # keeps the @user object in memory with all its validation errors, whereas redirect_to initiates a new request and reloads the page, losing the error messages associated with the @user instance.
+
+      # render :new  # keeps the @user object in memory with all its validation errors, whereas redirect_to initiates a new request and reloads the page, losing the error messages associated with the @user instance.
       puts "ERROR: User registration failed"
       puts @user.errors.full_messages
+      redirect_back fallback_location: root_path, alert: @user.errors.full_messages  # shows flash notic as ["Password confirmation doesn't match Password", "Email Must be a valid Email Address"]   Updated flash view to handle array if errors are in array if not do what it was doing previously
+      # redirect_back fallback_location: root_path, alert: @user.errors.full_messages.join("<br />").html_safe  # shows flash notic as Password confirmation doesn't match Password<br />Email Must be a valid Email Address
     end
     # puts "Create action was called"
     # logger.debug "Create action was called with params: #{params[:user].inspect}" # Logs detailed info
